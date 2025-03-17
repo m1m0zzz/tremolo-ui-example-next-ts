@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import { memo, useState } from 'react'
-import { AnimationCanvas, AnimationKnob, Knob, NumberInput, Piano, Slider, XYPad } from '@tremolo-ui/react'
-import { noteNumber } from '@tremolo-ui/functions'
+import { memo, useState } from "react";
+import { AnimationCanvas, AnimationKnob, Knob, NumberInput, Piano, Slider, XYPad } from "@tremolo-ui/react";
+import { noteNumber } from "@tremolo-ui/functions";
 
-import { Card } from '@/components/Card'
+import { Card } from "@/components/Card";
 
 // eslint-disable-next-line react/display-name
 const SineWaveAnimation = memo(() => {
@@ -13,9 +13,9 @@ const SineWaveAnimation = memo(() => {
       width={300}
       height={200}
       init={(ctx) => {
-        ctx.font = '16px sans-serif'
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.87)'
-        ctx.strokeStyle = 'cyan'
+        ctx.font = "16px sans-serif"
+        ctx.fillStyle = "rgba(255, 255, 255, 0.87)"
+        ctx.strokeStyle = "cyan"
       }}
       draw={(ctx, w, h, count) => {
         ctx.clearRect(0, 0, w.current, h.current)
@@ -44,7 +44,7 @@ export function Components() {
 
   return (
     <>
-      <Card title='Knob'>
+      <Card title="Knob">
         <Knob
           value={value}
           min={0}
@@ -53,7 +53,7 @@ export function Components() {
         />
         <p>value: {value}</p>
       </Card>
-      <Card title='AnimationKnob'>
+      <Card title="AnimationKnob">
         <AnimationKnob
           value={value}
           min={0}
@@ -62,10 +62,10 @@ export function Components() {
         />
         <p>value: {value}</p>
       </Card>
-      <Card title='Piano'>
-        <Piano noteRange={{ first: noteNumber('C3'), last: noteNumber('B3') }} />
+      <Card title="Piano">
+        <Piano noteRange={{ first: noteNumber("C3"), last: noteNumber("B3") }} />
       </Card>
-      <Card title='Slider'>
+      <Card title="Slider">
         <Slider
           value={value}
           min={0}
@@ -74,7 +74,7 @@ export function Components() {
         />
         <p>value: {value}</p>
       </Card>
-      <Card title='XYPad'>
+      <Card title="XYPad">
         <XYPad
           x={{
             value,
@@ -93,19 +93,19 @@ export function Components() {
         />
         <p>x: {value}, y: {value2}</p>
       </Card>
-      <Card title='NumberInput'>
+      <Card title="NumberInput">
         <NumberInput
           value={value}
           min={0}
           max={100}
           units={[
-            ['Hz', 1],
-            ['kHz', 1000],
+            ["Hz", 1],
+            ["kHz", 1000],
           ]}
           onChange={(v) => setValue(v)}
         />
       </Card>
-      <Card title='AnimationCanvas' note='Note: Use with React.memo to prevent re-rendering.'>
+      <Card title="AnimationCanvas" note="Note: Use with React.memo to prevent re-rendering.">
         <SineWaveAnimation />
       </Card>
     </>
